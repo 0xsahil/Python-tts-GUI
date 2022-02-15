@@ -15,8 +15,10 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
         self.setWindowTitle(' Text To Speech')
-        self.setGeometry(100, 100, 500, 500)
+        self.setGeometry(100, 100, 400, 400)
         self.setWindowIcon(QIcon("python.png"))
+        self.setMinimumSize(400,400)
+        self.setMaximumWidth(500)
         self.UI()
 
     def UI(self):
@@ -24,8 +26,7 @@ class Window(QWidget):
         # adding label
         self.label_text = QLabel("Enter your text below :", self)
         self.label_text.move(80, 60)
-        self.label_text.setStyleSheet(
-            "background-color : silver; border-style : outset ; border-width : 2px; border-radius : 10px; border-color :beige; font : bold 14px; min-width :1em; padding : 6px;")
+     #   self.label_text.setStyleSheet()
 
         # adding radio button to switch voice type
         male = QRadioButton("Male Voice", self)
@@ -41,23 +42,19 @@ class Window(QWidget):
         self.textEdit = QTextEdit(self)
         self.textEdit.move(80, 100)
         self.textEdit.setStyleSheet("border : 2px solid green;")
-        self.textEdit.setStyleSheet(
-            "background-color : beige; border-style : outset ; border-width : 2px; border-radius : 10px; border-color :red; min-width :1em; padding : 6px;")
+        self.textEdit.setStyleSheet( "background-color : beige; border-style : outset ; border-width : 2px; border-radius : 10px; border-color :red; ")
 
         # adding button to clear text in text field
         clear_button = QPushButton("Clear", self)
         clear_button.move(200, 300)
         clear_button.clicked.connect(self.clear)
-        clear_button.setStyleSheet(
-            "background-color : maroon; border-style : outset ; border-width : 2px; border-radius : 10px; border-color :beige; font : bold 14px; min-width :4em; padding : 6px;")
-
+        clear_button.setStyleSheet("QPushButton::hover" "{" "background-color : lightgreen;" "}")
+        
         # adding button to convert text into speech
         speak_button = QPushButton("Speak", self)
         speak_button.move(100, 300)
         speak_button.clicked.connect(self.gettext)
-        speak_button.setStyleSheet(
-            "background-color : maroon; border-style : outset ; border-width : 2px; border-radius : 10px; border-color :beige; font : bold 14px; min-width :4em; padding : 6px;")
-
+        speak_button.setStyleSheet("QPushButton::hover" "{" "background-color : lightgreen;" "}" )
         self.show()
 
     def voice_male(self, selected):
