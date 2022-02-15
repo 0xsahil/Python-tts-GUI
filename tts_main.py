@@ -26,6 +26,8 @@ class Window(QWidget):
         # adding label
         self.label_text = QLabel("Enter your text below :", self)
         self.label_text.move(80, 60)
+        self.label_text.setFont(QFont('Comic Sans MS', 10))
+
      #   self.label_text.setStyleSheet()
 
         # adding radio button to switch voice type
